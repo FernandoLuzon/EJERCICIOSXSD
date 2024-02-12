@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Definición de tipos de datos -->
+    <xs:simpleType name="tipoPersona">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="info">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="date">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+
+    <!-- Definición del elemento persona -->
+    <xs:element name="persona">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="datos" type="info"/>
+                <xs:element name="comentario" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="nacimiento" type="date" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Definición del elemento datos -->
+    <xs:element name="datos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="tipoPersona"/>
+                <xs:element name="apellidos" type="tipoPersona"/>
+                <xs:element name="dni" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
